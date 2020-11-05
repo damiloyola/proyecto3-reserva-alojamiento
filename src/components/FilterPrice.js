@@ -1,7 +1,13 @@
 import React from "react";
 
 const FilterPrice = () => {
-    return <h1>Filter Price</h1>;
+    return (
+        <select>
+            <option value="bajo">Bajo</option>
+            <option value="medio">Medio</option>
+            <option value="alto">Alto</option>
+        </select>
+    );
 };
 
 export default FilterPrice;
