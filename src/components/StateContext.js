@@ -6,8 +6,8 @@ export const StateProvider = (props) => {
     const [state, setState] = useState({
         dateStart: "hoy",
         dateEnd: "2",
-        price: "",
-        size: "",
+        price: "0",
+        size: "0",
     });
 
     return (
