@@ -10,6 +10,7 @@ const Filters = () => {
         setState(values);
         console.log(state);
     };
+
     return (
         <div>
             <input name="dateStart" onChange={handleInput} type="date" />

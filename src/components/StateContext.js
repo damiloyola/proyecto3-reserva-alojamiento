@@ -4,8 +4,8 @@ export const StateContext = createContext();
 
 export const StateProvider = (props) => {
     const [state, setState] = useState({
-        dateStart: "hoy",
-        dateEnd: "2",
+        dateStart: Date.now(),
+        dateEnd: Date.now(),
         price: "0",
         size: "0",
     });
