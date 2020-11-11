@@ -1,23 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { StateContext } from "./StateContext";
+
+import moment from "moment";
+import "moment/locale/es";
+moment.locale("es");
+const format = "dddd[,] D [de] MMMM [de] YYYY";
 
 const Header = () => {
     const [state, setState] = useContext(StateContext);
-    const options = {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        weekday: "long",
-    };
-    const formatDateEnd = new Date(state.dateEnd);
-    const formatDateStart = new Date(state.dateStart);
-    console.log(state.dateStart);
+
     return (
         <header>
             <h1>Header</h1>
             <p>
-                desde el {formatDateStart.toLocaleDateString("es-ES", options)},
-                hasta el {formatDateEnd.toLocaleDateString("es-ES", options)}
+                desde el {moment(state.dateStart).format(format)} hasta el{" "}
+                {moment(state.dateEnd).format(format)}
             </p>
         </header>
     );

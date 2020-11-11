@@ -1,14 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { StateContext } from "./StateContext";
+import moment from "moment";
 
 const Filters = () => {
     const [state, setState] = useContext(StateContext);
 
     const handleInput = (e) => {
-        const { name, value } = e.target;
+        let { name, value } = e.target;
+        if (name === "dateStart" || name === "dateEnd") {
+            value = moment(value);
+        }
         const values = { ...state, [name]: value };
         setState(values);
-        console.log(state);
     };
 
     return (

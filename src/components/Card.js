@@ -2,6 +2,7 @@ import React from "react";
 
 const Card = (props) => {
     const dateStart = new Date(props.data.availabilityFrom);
+    console.log(dateStart);
     const dateEnd = new Date(props.data.availabilityTo);
     return (
         <div>
