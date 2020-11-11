@@ -20,30 +20,32 @@ const Cards = () => {
         // debugger;
         if (stateStart == today || stateStart >= itemDateStart) {
             if (stateEnd == oneWeek || stateEnd <= itemDateEnd) {
-                if (state.price == "0" || item.price == state.price) {
-                    switch (state.size) {
-                        case "chico":
-                            if (item.rooms <= 10) {
-                                return true;
-                            }
-                            break;
+                if (state.country == "0" || state.country == item.country) {
+                    if (state.price == "0" || item.price == state.price) {
+                        switch (state.size) {
+                            case "chico":
+                                if (item.rooms <= 10) {
+                                    return true;
+                                }
+                                break;
 
-                        case "medio":
-                            if (item.rooms <= 20 && item.rooms >= 10) {
-                                return true;
-                            }
-                            break;
+                            case "medio":
+                                if (item.rooms <= 20 && item.rooms >= 10) {
+                                    return true;
+                                }
+                                break;
 
-                        case "grande":
-                            if (item.rooms >= 20) {
-                                return true;
-                            }
-                            break;
+                            case "grande":
+                                if (item.rooms >= 20) {
+                                    return true;
+                                }
+                                break;
 
-                        case "0":
-                            return true;
-                        default:
-                            return false;
+                            case "0":
+                                return true;
+                            default:
+                                return false;
+                        }
                     }
                 }
             }

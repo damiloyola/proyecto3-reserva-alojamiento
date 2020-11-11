@@ -18,7 +18,16 @@ const Filters = () => {
         <div>
             <input name="dateStart" onChange={handleInput} type="date" />
             <input name="dateEnd" type="date" onChange={handleInput} />
-            <select name="price" id="price_select" onChange={handleInput}>
+            <select name="country" onChange={handleInput}>
+                <option default value="0">
+                    Cualquier Pais
+                </option>
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Chile">Chile</option>
+                <option value="Uruguay">Uruguay</option>
+            </select>
+            <select name="price" onChange={handleInput}>
                 <option default value="0">
                     Cualquier Precio
                 </option>
@@ -27,7 +36,7 @@ const Filters = () => {
                 <option value="3">Precio Alto</option>
                 <option value="4">Precio Muy Alto</option>
             </select>
-            <select name="size" id="size_select" onChange={handleInput}>
+            <select name="size" onChange={handleInput}>
                 <option default value="0">
                     Cualquier Tamaño
                 </option>
