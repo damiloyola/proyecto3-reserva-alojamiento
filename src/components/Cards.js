@@ -31,7 +31,10 @@ const Cards = () => {
             "YYYY-MM-DD"
         );
         const itemDateEnd = moment(item.availabilityTo).format("YYYY-MM-DD");
-        if (stateStart >= itemDateStart && stateEnd <= itemDateEnd) {
+        if (
+            state.firstTime ||
+            (stateStart >= itemDateStart && stateEnd <= itemDateEnd)
+        ) {
             return true;
         }
     };

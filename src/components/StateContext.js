@@ -7,7 +7,7 @@ export const StateProvider = (props) => {
     const [state, setState] = useState({
         firstTime: true,
         dateStart: moment(),
-        dateEnd: moment().add(1, "d"),
+        dateEnd: moment().add(1, "w"),
         country: "0",
         price: "0",
         size: "0",
