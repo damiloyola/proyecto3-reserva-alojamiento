@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { StateContext } from "./StateContext";
 import styled from "styled-components";
-import { color } from "./Constants";
+import { color, size } from "./Constants";
 import moment from "moment";
 import "moment/locale/es";
 moment.locale("es");
@@ -15,9 +15,11 @@ const Hero = styled.div`
 `;
 const H1 = styled.h1`
     color: ${color.primary};
+    font-size: ${size.xl};
 `;
 const P = styled.p`
     color: ${color.light};
+    font-size: ${size.l};
 `;
 
 const Span = styled.span`
@@ -26,7 +28,7 @@ const Span = styled.span`
 `;
 
 const Header = () => {
-    const state = useContext(StateContext);
+    const [state, setState] = useContext(StateContext);
 
     return (
         <Hero>

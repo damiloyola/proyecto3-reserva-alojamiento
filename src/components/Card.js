@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { color, size } from "./Constants";
 
 const CardContainer = styled.div`
+    box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -82,7 +83,7 @@ const Item = styled.div`
     width: 30%;
     padding: 1%;
     border-radius: 5px;
-
+    line-height: 30px;
     color: ${color.light};
 `;
 

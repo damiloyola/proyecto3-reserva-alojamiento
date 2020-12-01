@@ -1,16 +1,17 @@
 import React, { useState, createContext } from "react";
 import moment from "moment";
-
+import data from "../assets/scripts/data";
 export const StateContext = createContext();
 
 export const StateProvider = (props) => {
     const [state, setState] = useState({
         firstTime: true,
         dateStart: moment(),
-        dateEnd: moment().add(1, "w"),
+        dateEnd: moment().add(1, "d"),
         country: "0",
         price: "0",
         size: "0",
+        selected: data,
     });
 
     return (

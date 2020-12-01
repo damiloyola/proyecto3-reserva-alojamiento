@@ -6,6 +6,7 @@ import { StateContext } from "./StateContext";
 import moment from "moment";
 import styled from "styled-components";
 import { color } from "./Constants";
+import Filters from "./Filters";
 
 const CardsContainer = styled.div`
     display: flex;
@@ -25,48 +26,46 @@ const Cards = () => {
     const stateStart = moment(state.dateStart).format("YYYY-MM-DD");
     const stateEnd = moment(state.dateEnd).format("YYYY-MM-DD");
 
-    const validator = (item) => {
+    const dateFilter = (item) => {
         const itemDateStart = moment(item.availabilityFrom).format(
             "YYYY-MM-DD"
         );
         const itemDateEnd = moment(item.availabilityTo).format("YYYY-MM-DD");
-
-        if (
-            state.firstTime === true ||
-            (stateEnd <= itemDateEnd && stateStart >= itemDateStart)
-        ) {
-            if (state.country == "0" || state.country == item.country) {
-                if (state.price == "0" || item.price == state.price) {
-                    switch (state.size) {
-                        case "chico":
-                            if (item.rooms <= 10) {
-                                return true;
-                            }
-                            break;
-
-                        case "medio":
-                            if (item.rooms <= 20 && item.rooms >= 10) {
-                                return true;
-                            }
-                            break;
-
-                        case "grande":
-                            if (item.rooms >= 20) {
-                                return true;
-                            }
-                            break;
-
-                        case "0":
-                            return true;
-                        default:
-                            return false;
-                    }
-                }
-            }
+        if (stateStart >= itemDateStart && stateEnd <= itemDateEnd) {
+            return true;
         }
     };
 
-    const result = data.filter((item) => validator(item));
+    const countryFilter = (item) => {
+        if (state.country === "0" || state.country === item.country)
+            return true;
+    };
+
+    const priceFilter = (item) => {
+        if (state.price === "0" || Number(state.price) === item.price)
+            return true;
+    };
+
+    const sizeFilter = (item) => {
+        if (
+            state.size === "0" ||
+            (state.size === "chico" && item.rooms <= 10) ||
+            (state.size === "medio" && item.rooms <= 20 && item.rooms >= 10) ||
+            (state.size === "grande" && item.rooms >= 20)
+        )
+            return true;
+    };
+
+    const validator = (hotel) => {
+        return (
+            priceFilter(hotel) &&
+            countryFilter(hotel) &&
+            dateFilter(hotel) &&
+            sizeFilter(hotel)
+        );
+    };
+
+    const result = data.filter(validator);
 
     console.log(result);
     if (result.length === 0) {
