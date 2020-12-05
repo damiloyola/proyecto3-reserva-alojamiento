@@ -45,7 +45,8 @@ const Filters = () => {
     setState(values);
   };
 
-  const handleReset = () => {
+  const handleReset = (e) => {
+     e.preventDefault();
     setState({
       firstTime: true,
       dateStart: {},
@@ -53,7 +54,7 @@ const Filters = () => {
       country: "0",
       price: "0",
       size: "0",
-      selected: data,
+      
     });
   };
 
@@ -61,20 +62,23 @@ const Filters = () => {
     <Form>
       <Input
         name="dateStart"
+        type="date"
+        onChange={handleInput}
         value={
-          Object.keys(state.dateStart) === 0
+           
+          Object.keys(state.dateStart).length === 0
             ? {}
             : moment(state.dateStart).format("YYYY[-]MM[-]DD")
         }
-        onChange={handleInput}
-        type="date"
-        min={moment().format("YYYY[-]MM[-]DD")}
+        
+        
+        // min={moment().format("YYYY[-]MM[-]DD")}
       />
       <Input
         value={
-          Object.keys(state.dateStart) === 0
+          Object.keys(state.dateEnd).length === 0
             ? {}
-            : moment(state.dateStart).format("YYYY[-]MM[-]DD")
+            : moment(state.dateEnd).format("YYYY[-]MM[-]DD")
         }
         name="dateEnd"
         type="date"

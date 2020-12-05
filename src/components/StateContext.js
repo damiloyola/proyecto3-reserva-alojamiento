@@ -1,6 +1,6 @@
 import React, { useState, createContext } from "react";
 import moment from "moment";
-import data from "../assets/scripts/data";
+
 export const StateContext = createContext();
 
 export const StateProvider = (props) => {
@@ -11,7 +11,7 @@ export const StateProvider = (props) => {
         country: "0",
         price: "0",
         size: "0",
-        selected: data,
+        
     });
 
     return (

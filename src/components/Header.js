@@ -30,15 +30,30 @@ const Span = styled.span`
 const Header = () => {
     const [state, setState] = useContext(StateContext);
 
+    const priceText = (price) =>{
+        switch(price){
+            case '1': return 'Bajo';
+            case '2': return 'Medio';
+            case '3': return 'Alto';
+            case '4': return 'Muy Alto';
+        }
+    }
     return (
         <Hero>
             <header>
                 <H1>Hoteles</H1>
-                <P>
-                    desde el{" "}
+                {Object.keys(state.dateStart).length === 0 || Object.keys(state.dateEnd).length === 0 ? <P> Ingrese una fecha de inicio y una de final para comenzar a buscar </P>: <P>
+                    Desde el{" "}
                     <Span>{moment(state.dateStart).format(format)}</Span> hasta
                     el <Span>{moment(state.dateEnd).format(format)}</Span>
-                </P>
+                </P>}
+
+                {state.country !== '0' && <P>En <Span>{state.country}</Span></P>}
+
+                {state.price !== '0' && <P>Precio <Span>{priceText(state.price)}</Span></P> }
+
+                {state.size !== '0' && <P>Tamaño del hotel <Span>{state.size}</Span></P>}
+
             </header>
         </Hero>
     );

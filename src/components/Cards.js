@@ -32,7 +32,7 @@ const Cards = () => {
         );
         const itemDateEnd = moment(item.availabilityTo).format("YYYY-MM-DD");
         if (
-            Object.keys(stateStart).length === 0 && Object.keys(stateEnd).length === 0 ||
+            Object.keys(state.dateStart).length === 0 || Object.keys(state.dateEnd).length === 0 ||
             (stateStart >= itemDateStart && stateEnd <= itemDateEnd)
         ) {
             return true;
