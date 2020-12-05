@@ -6,8 +6,8 @@ export const StateContext = createContext();
 export const StateProvider = (props) => {
     const [state, setState] = useState({
         firstTime: true,
-        dateStart: moment(),
-        dateEnd: moment().add(1, "w"),
+        dateStart: {},
+        dateEnd:{},
         country: "0",
         price: "0",
         size: "0",
