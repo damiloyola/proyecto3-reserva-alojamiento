@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import data from "../assets/scripts/data";
 import Error from "./Error";
 import Card from "./Card";
@@ -6,7 +6,6 @@ import { StateContext } from "./StateContext";
 import moment from "moment";
 import styled from "styled-components";
 import { color } from "./Constants";
-import Filters from "./Filters";
 
 const CardsContainer = styled.div`
     display: flex;
@@ -21,7 +20,7 @@ const CardsContainer = styled.div`
 `;
 
 const Cards = () => {
-    const [state, setState] = useContext(StateContext);
+    const [state] = useContext(StateContext);
 
     const stateStart = moment(state.dateStart).format("YYYY-MM-DD");
     const stateEnd = moment(state.dateEnd).format("YYYY-MM-DD");
@@ -32,7 +31,8 @@ const Cards = () => {
         );
         const itemDateEnd = moment(item.availabilityTo).format("YYYY-MM-DD");
         if (
-            Object.keys(state.dateStart).length === 0 || Object.keys(state.dateEnd).length === 0 ||
+            Object.keys(state.dateStart).length === 0 ||
+            Object.keys(state.dateEnd).length === 0 ||
             (stateStart >= itemDateStart && stateEnd <= itemDateEnd)
         ) {
             return true;
@@ -70,7 +70,6 @@ const Cards = () => {
 
     const result = data.filter(validator);
 
-    console.log(result);
     if (result.length === 0) {
         return <Error e="No se encuentra ningun resultado" />;
     } else if (stateEnd < stateStart) {

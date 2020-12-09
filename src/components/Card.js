@@ -1,5 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faMapMarkerAlt,
+    faBed,
+    faDollarSign,
+} from "@fortawesome/free-solid-svg-icons";
 import { color, size } from "./Constants";
 
 const CardContainer = styled.div`
@@ -86,6 +92,9 @@ const Item = styled.div`
     border-radius: 5px;
     line-height: 30px;
     color: ${color.light};
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 `;
 
 const ItemsContainer = styled.div`
@@ -94,9 +103,6 @@ const ItemsContainer = styled.div`
 `;
 
 const Card = (props) => {
-    const dateStart = new Date(props.data.availabilityFrom);
-
-    const dateEnd = new Date(props.data.availabilityTo);
     return (
         <CardContainer>
             <Img src={props.data.photo}></Img>
@@ -105,12 +111,35 @@ const Card = (props) => {
                 <P>{props.data.description}</P>
                 <ItemsContainer>
                     <Item>
+                        <FontAwesomeIcon icon={faMapMarkerAlt} color="white" />
                         <span>{props.data.city}</span>
                     </Item>
                     <Item>
+                        <FontAwesomeIcon icon={faBed} color="white" />
                         <span>{props.data.rooms} Habitaciones</span>
                     </Item>
-                    <Item>$$$$</Item>
+                    <Item>
+                        <FontAwesomeIcon
+                            icon={faDollarSign}
+                            color={props.data.price >= 1 ? "white" : "#72ABB3"}
+                            className="size"
+                        />
+                        <FontAwesomeIcon
+                            icon={faDollarSign}
+                            color={props.data.price >= 2 ? "white" : "#72ABB3"}
+                            className="size"
+                        />
+                        <FontAwesomeIcon
+                            icon={faDollarSign}
+                            color={props.data.price >= 3 ? "white" : "#72ABB3"}
+                            className="size"
+                        />
+                        <FontAwesomeIcon
+                            icon={faDollarSign}
+                            color={props.data.price >= 4 ? "white" : "#72ABB3"}
+                            className="size"
+                        />
+                    </Item>
                 </ItemsContainer>
                 <Button>Reservar</Button>
             </Text>
