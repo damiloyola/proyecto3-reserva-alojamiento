@@ -81,6 +81,7 @@ const P = styled.p`
 const Item = styled.div`
     background-color: ${color.dark};
     width: 30%;
+    max-height: 60px;
     padding: 1%;
     border-radius: 5px;
     line-height: 30px;
