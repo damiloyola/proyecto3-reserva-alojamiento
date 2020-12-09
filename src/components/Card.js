@@ -87,14 +87,23 @@ const P = styled.p`
 const Item = styled.div`
     background-color: ${color.dark};
     width: 30%;
-    max-height: 60px;
-    padding: 1%;
+
+    padding: 10px;
     border-radius: 5px;
     line-height: 30px;
     color: ${color.light};
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    @media (max-width: 1100px) {
+        span {
+            display: block;
+            width: 80%;
+            font-size: 13px;
+
+            line-height: 15px;
+        }
+    }
 `;
 
 const ItemsContainer = styled.div`
