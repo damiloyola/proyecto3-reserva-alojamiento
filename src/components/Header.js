@@ -17,7 +17,7 @@ const H1 = styled.h1`
     color: ${color.primary};
     font-size: ${size.xl};
 `;
-const P = styled.p`
+const P = styled.span`
     color: ${color.light};
     font-size: ${size.l};
     margin: 5px 0px;
@@ -34,13 +34,13 @@ const Header = () => {
     const priceText = (price) => {
         switch (price) {
             case "1":
-                return "Bajo";
+                return "bajo";
             case "2":
-                return "Medio";
+                return "medio";
             case "3":
-                return "Alto";
+                return "alto";
             case "4":
-                return "Muy Alto";
+                return "muy alto";
             default:
                 return false;
         }
@@ -51,35 +51,31 @@ const Header = () => {
                 <H1>Hoteles</H1>
                 {Object.keys(state.dateStart).length === 0 ||
                 Object.keys(state.dateEnd).length === 0 ? (
-                    <P>
-                        {" "}
-                        Ingrese una fecha de inicio y una de final para comenzar
-                        a buscar{" "}
-                    </P>
+                    <P> Estas viendo todos los hoteles disponibles </P>
                 ) : (
                     <P>
-                        Desde el{" "}
+                        Estas buscando hoteles desde el{" "}
                         <Span>{moment(state.dateStart).format(format)}</Span>{" "}
                         hasta el{" "}
-                        <Span>{moment(state.dateEnd).format(format)}</Span>
+                        <Span>{moment(state.dateEnd).format(format)} </Span>
                     </P>
                 )}
 
                 {state.country !== "0" && (
                     <P>
-                        En <Span>{state.country}</Span>
+                        en <Span>{state.country} </Span>
                     </P>
                 )}
 
                 {state.price !== "0" && (
                     <P>
-                        Precio <Span>{priceText(state.price)}</Span>
+                        a un precio <Span>{priceText(state.price)} </Span>
                     </P>
                 )}
 
                 {state.size !== "0" && (
                     <P>
-                        Tamaño del hotel <Span>{state.size}</Span>
+                        con un tamaño <Span>{state.size} </Span>
                     </P>
                 )}
             </header>
