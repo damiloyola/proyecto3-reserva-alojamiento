@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import data from "../assets/scripts/data";
 import Error from "./Error";
 import Card from "./Card";
@@ -6,7 +6,7 @@ import { StateContext } from "./StateContext";
 import moment from "moment";
 import styled from "styled-components";
 import { color } from "./Constants";
-
+import FilterModal from "./FilterModal";
 const CardsContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ const CardsContainer = styled.div`
 
 const Cards = () => {
     const [state] = useContext(StateContext);
-
+    const [modalOpen, setModal] = useState(true);
     const stateStart = moment(state.dateStart).format("YYYY-MM-DD");
     const stateEnd = moment(state.dateEnd).format("YYYY-MM-DD");
 
@@ -70,12 +70,22 @@ const Cards = () => {
 
     const result = data.filter(validator);
 
+    const closeModal = () => {
+        setModal(false);
+    };
+
+    useEffect(() => {
+        return () => {
+            setModal(true);
+        };
+    }, [state.dateStart]);
+
     if (result.length === 0) {
         return <Error e="No se encuentra ningun resultado" />;
     } else if (stateEnd < stateStart) {
-        return (
-            <Error e="Debe seleccionar una fecha de inicio menor a la fecha de fin " />
-        );
+        return <Error e="la fecha de entrada debe ser menor a la de salida" />;
+    } else if (stateStart < moment().format("YYYY-MM-DD")) {
+        return <FilterModal handleClose={closeModal} open={modalOpen} />;
     } else
         return (
             <CardsContainer>

@@ -83,7 +83,6 @@ const Filters = () => {
                             ? {}
                             : moment(state.dateStart).format("YYYY[-]MM[-]DD")
                     }
-                    min={moment().format("YYYY[-]MM[-]DD")}
                 />
             </InputContainer>
             <InputContainer>
@@ -98,7 +97,6 @@ const Filters = () => {
                     name="dateEnd"
                     type="date"
                     onChange={handleInput}
-                    min={moment().format("YYYY[-]MM[-]DD")}
                 />
             </InputContainer>
             <InputContainer>
