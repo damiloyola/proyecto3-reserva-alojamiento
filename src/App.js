@@ -1,6 +1,6 @@
-import Header from "./components/Header";
-import Filters from "./components/Filters";
-import Cards from "./components/Cards";
+import Header from "./components/header/Header";
+
+import Cards from "./components/cards/Cards";
 import { StateProvider } from "./components/StateContext";
 import { createGlobalStyle } from "styled-components";
 
@@ -21,7 +21,7 @@ const App = () => {
         <StateProvider>
             <GlobalStyle />
             <Header />
-            <Filters />
+
             <Cards />
         </StateProvider>
     );

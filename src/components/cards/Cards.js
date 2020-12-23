@@ -1,17 +1,18 @@
 import React, { useContext, useState, useEffect } from "react";
-import data from "../assets/scripts/data";
-import Error from "./Error";
+import data from "../../assets/scripts/data";
+import Error from "../Error";
 import Card from "./Card";
-import { StateContext } from "./StateContext";
+import { StateContext } from "../StateContext";
 import moment from "moment";
 import styled from "styled-components";
-import { color } from "./Constants";
-import FilterModal from "./FilterModal";
-const CardsContainer = styled.div`
+import { color } from "../Constants";
+import FilterModal from "../header/FilterModal";
+const Section = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 5%;
     background-color: ${color.primary};
     @media (min-width: 800px) {
         flex-direction: row;
@@ -88,11 +89,13 @@ const Cards = () => {
         return <FilterModal handleClose={closeModal} open={modalOpen} />;
     } else
         return (
-            <CardsContainer>
-                {result.map((i) => (
-                    <Card key={i.slug} data={i} />
-                ))}
-            </CardsContainer>
+            <main>
+                <Section>
+                    {result.map((i) => (
+                        <Card key={i.slug} data={i} />
+                    ))}
+                </Section>
+            </main>
         );
 };
 export default Cards;

@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { StateContext } from "./StateContext";
+import Filters from "../header/Filters";
+import { StateContext } from "../StateContext";
 import styled from "styled-components";
-import { color, size } from "./Constants";
+import { color, size } from "../Constants";
 import moment from "moment";
 import "moment/locale/es";
 moment.locale("es");
 const format = "dddd[,] D [de] MMMM [de] YYYY";
 
-const Hero = styled.div`
+const Hero = styled.header`
     background-color: ${color.dark};
     padding: 5%;
     padding-bottom: 2%;
@@ -46,8 +47,8 @@ const Header = () => {
         }
     };
     return (
-        <Hero>
-            <header>
+        <header>
+            <Hero>
                 <H1>Hoteles</H1>
                 {Object.keys(state.dateStart).length === 0 ||
                 Object.keys(state.dateEnd).length === 0 ? (
@@ -78,8 +79,9 @@ const Header = () => {
                         con un tamaño <Span>{state.size} </Span>
                     </P>
                 )}
-            </header>
-        </Hero>
+            </Hero>
+            <Filters />
+        </header>
     );
 };
 

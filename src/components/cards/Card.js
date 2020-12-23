@@ -6,7 +6,7 @@ import {
     faBed,
     faDollarSign,
 } from "@fortawesome/free-solid-svg-icons";
-import { color, size } from "./Constants";
+import { color, size } from "../Constants";
 
 const CardContainer = styled.div`
     box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
@@ -47,7 +47,7 @@ const H1 = styled.h1`
     margin-bottom: 20px;
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
     width: 100%;
     padding: 1%;
     margin: 0 auto;
@@ -114,7 +114,10 @@ const ItemsContainer = styled.div`
 const Card = (props) => {
     return (
         <CardContainer>
-            <Img src={props.data.photo}></Img>
+            <Img
+                src={props.data.photo}
+                alt={"foto de hotel " + props.data.name}
+            ></Img>
             <Text>
                 <H1>{props.data.name}</H1>
                 <P>{props.data.description}</P>

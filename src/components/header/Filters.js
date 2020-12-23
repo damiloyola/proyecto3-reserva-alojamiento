@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { StateContext } from "./StateContext";
+import { StateContext } from "../StateContext";
 import moment from "moment";
 import styled, { css } from "styled-components";
-import { color, size } from "./Constants";
-import { Button } from "./Card";
+import { color, size } from "../Constants";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faSignInAlt,
@@ -44,6 +44,38 @@ const InputContainer = styled.div`
     margin: 15px 0;
     padding: 5px 15px;
     border-radius: 5px;
+`;
+
+const Button = styled.button`
+    width: 100%;
+    padding: 1%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: ${color.secondary};
+    border: 2px solid ${color.secondary};
+    color: ${color.light};
+    font-size: ${size.l};
+    transition: 0.3s;
+
+    &:hover {
+        /* background-color: ${color.light};
+        color: ${color.secondary}; */
+        box-shadow: 5px 5px 0px -1px rgba(55, 151, 164, 1);
+    }
+    &:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+        box-shadow: none;
+    }
+    @media (min-width: 800px) {
+        width: 30%;
+    }
 `;
 
 const Filters = () => {
