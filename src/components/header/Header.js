@@ -46,6 +46,33 @@ const Header = () => {
                 return false;
         }
     };
+    const sizeText = (size) => {
+        switch (size) {
+            case "1":
+                return "chico";
+            case "2":
+                return "medio";
+            case "3":
+                return "grande";
+
+            default:
+                return false;
+        }
+    };
+    const countryText = (country) => {
+        switch (country) {
+            case "1":
+                return "Argentina";
+            case "2":
+                return "Brasil";
+            case "3":
+                return "Chile";
+            case "4":
+                return "Uruguay";
+            default:
+                return false;
+        }
+    };
     return (
         <header>
             <Hero>
@@ -64,7 +91,7 @@ const Header = () => {
 
                 {state.country !== "0" && (
                     <P>
-                        en <Span>{state.country} </Span>
+                        en <Span>{countryText(state.country)} </Span>
                     </P>
                 )}
 
@@ -76,7 +103,7 @@ const Header = () => {
 
                 {state.size !== "0" && (
                     <P>
-                        con un tamaño <Span>{state.size} </Span>
+                        con un tamaño <Span>{sizeText(state.size)} </Span>
                     </P>
                 )}
             </Hero>

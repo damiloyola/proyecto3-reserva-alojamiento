@@ -8,15 +8,12 @@ import styled from "styled-components";
 import { color } from "../Constants";
 import FilterModal from "../header/FilterModal";
 const Section = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
     padding-bottom: 5%;
     background-color: ${color.primary};
     @media (min-width: 800px) {
-        flex-direction: row;
-        flex-wrap: wrap;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 `;
 
@@ -31,33 +28,34 @@ const Cards = () => {
             "YYYY-MM-DD"
         );
         const itemDateEnd = moment(item.availabilityTo).format("YYYY-MM-DD");
-        if (
+        return (
             Object.keys(state.dateStart).length === 0 ||
             Object.keys(state.dateEnd).length === 0 ||
             (stateStart >= itemDateStart && stateEnd <= itemDateEnd)
-        ) {
-            return true;
-        }
+        );
     };
 
     const countryFilter = (item) => {
-        if (state.country === "0" || state.country === item.country)
-            return true;
+        return (
+            state.country === "0" ||
+            (state.country === "1" && item.country === "Argentina") ||
+            (state.country === "2" && item.country === "Brasil") ||
+            (state.country === "3" && item.country === "Chile") ||
+            (state.country === "4" && item.country === "Uruguay")
+        );
     };
 
     const priceFilter = (item) => {
-        if (state.price === "0" || Number(state.price) === item.price)
-            return true;
+        return state.price === "0" || Number(state.price) === item.price;
     };
 
     const sizeFilter = (item) => {
-        if (
+        return (
             state.size === "0" ||
-            (state.size === "chico" && item.rooms <= 10) ||
-            (state.size === "medio" && item.rooms <= 20 && item.rooms >= 10) ||
-            (state.size === "grande" && item.rooms >= 20)
-        )
-            return true;
+            (state.size === "1" && item.rooms <= 10) ||
+            (state.size === "2" && item.rooms <= 20 && item.rooms >= 10) ||
+            (state.size === "3" && item.rooms >= 20)
+        );
     };
 
     const validator = (hotel) => {

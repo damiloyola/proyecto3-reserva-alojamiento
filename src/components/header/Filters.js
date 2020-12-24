@@ -143,10 +143,10 @@ const Filters = () => {
                     <option default value="0">
                         Cualquier Pais
                     </option>
-                    <option value="Argentina">Argentina</option>
-                    <option value="Brasil">Brasil</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Uruguay">Uruguay</option>
+                    <option value="1">Argentina</option>
+                    <option value="2">Brasil</option>
+                    <option value="3">Chile</option>
+                    <option value="4">Uruguay</option>
                 </Select>
             </InputContainer>
             <InputContainer>
@@ -169,9 +169,9 @@ const Filters = () => {
                     <option default value="0">
                         Cualquier Tamaño
                     </option>
-                    <option value="chico">Bajo</option>
-                    <option value="medio">Medio</option>
-                    <option value="grande">Grande</option>
+                    <option value="1">Bajo</option>
+                    <option value="2">Medio</option>
+                    <option value="3">Grande</option>
                 </Select>
             </InputContainer>
             <Button onClick={handleReset}>Reset</Button>

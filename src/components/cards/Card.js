@@ -15,23 +15,19 @@ const CardContainer = styled.div`
     flex-direction: column;
     padding: 2%;
     width: 80%;
-    margin-top: 3%;
+    margin: 5% auto;
+
     background-color: ${color.light};
     border-radius: 10px;
     @media (min-width: 800px) {
         width: 90%;
-        flex-direction: row;
+
         justify-content: space-between;
     }
 `;
 
 const Img = styled.img`
     width: 100%;
-    align-self: center;
-    @media (min-width: 800px) {
-        width: 450px;
-        height: 300px;
-    }
 `;
 
 const Text = styled.div`
@@ -88,22 +84,24 @@ const Item = styled.div`
     background-color: ${color.dark};
     width: 30%;
 
-    padding: 10px;
+    padding: 2%;
     border-radius: 5px;
     line-height: 30px;
     color: ${color.light};
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    @media (max-width: 1100px) {
-        span {
-            display: block;
-            width: 80%;
-            font-size: 13px;
+`;
+const ItemText = styled.span`
+    display: block;
+    padding: 5%;
+    font-size: 14px;
 
-            line-height: 15px;
-        }
-    }
+    line-height: 15px;
+`;
+
+const Icon = styled.div`
+    margin-left: 10px;
 `;
 
 const ItemsContainer = styled.div`
@@ -123,12 +121,19 @@ const Card = (props) => {
                 <P>{props.data.description}</P>
                 <ItemsContainer>
                     <Item>
-                        <FontAwesomeIcon icon={faMapMarkerAlt} color="white" />
-                        <span>{props.data.city}</span>
+                        <Icon>
+                            <FontAwesomeIcon
+                                icon={faMapMarkerAlt}
+                                color="white"
+                            />
+                        </Icon>
+                        <ItemText>{props.data.city}</ItemText>
                     </Item>
                     <Item>
-                        <FontAwesomeIcon icon={faBed} color="white" />
-                        <span>{props.data.rooms} Habitaciones</span>
+                        <Icon>
+                            <FontAwesomeIcon icon={faBed} color="white" />
+                        </Icon>
+                        <ItemText>{props.data.rooms} Habitaciones</ItemText>
                     </Item>
                     <Item>
                         <FontAwesomeIcon
