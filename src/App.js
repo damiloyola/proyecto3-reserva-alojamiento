@@ -1,5 +1,5 @@
 import Header from "./components/header/Header";
-
+import React from "react";
 import Cards from "./components/cards/Cards";
 import { StateProvider } from "./components/StateContext";
 import { createGlobalStyle } from "styled-components";
@@ -17,14 +17,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-    return (
-        <StateProvider>
-            <GlobalStyle />
-            <Header />
+  return (
+    <StateProvider>
+      <GlobalStyle />
+      <Header />
 
-            <Cards />
-        </StateProvider>
-    );
+      <Cards />
+    </StateProvider>
+  );
 };
 
 export default App;
