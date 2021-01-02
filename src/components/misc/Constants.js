@@ -6,8 +6,8 @@ export const color = {
 };
 
 export const size = {
-    xl: "2em",
-    l: "1.3em",
-    m: "1em",
-    s: ".5em",
+    xl: "2rem",
+    l: "1.3rem",
+    m: "1rem",
+    s: ".5rem",
 };

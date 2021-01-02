@@ -1,7 +1,7 @@
-import Header from "./components/Header";
-import Filters from "./components/Filters";
-import Cards from "./components/Cards";
-import { StateProvider } from "./components/StateContext";
+import Header from "./components/header/Header";
+import React from "react";
+import Cards from "./components/cards/Cards";
+import { StateProvider } from "./components/misc/StateContext";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -17,14 +17,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-    return (
-        <StateProvider>
-            <GlobalStyle />
-            <Header />
-            <Filters />
-            <Cards />
-        </StateProvider>
-    );
+  return (
+    <StateProvider>
+      <GlobalStyle />
+      <Header />
+
+      <Cards />
+    </StateProvider>
+  );
 };
 
 export default App;
