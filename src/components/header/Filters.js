@@ -1,15 +1,8 @@
 import React, { useContext } from "react";
-<<<<<<< HEAD
 import { StateContext } from "../misc/StateContext";
 import moment from "moment";
 import styled, { css } from "styled-components";
 import { color, size } from "../misc/Constants";
-=======
-import { StateContext } from "../StateContext";
-import moment from "moment";
-import styled, { css } from "styled-components";
-import { color, size } from "../Constants";
->>>>>>> 35f9a76bbde39bb5a37c0f186a968202471cf0ae
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

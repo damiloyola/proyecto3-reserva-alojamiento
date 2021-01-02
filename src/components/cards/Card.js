@@ -6,11 +6,7 @@ import {
   faBed,
   faDollarSign
 } from "@fortawesome/free-solid-svg-icons";
-<<<<<<< HEAD
 import { color, size } from "../misc/Constants";
-=======
-import { color, size } from "../Constants";
->>>>>>> 35f9a76bbde39bb5a37c0f186a968202471cf0ae
 
 const CardContainer = styled.div`
   box-shadow: 0px 0px 15px -5px rgba(0, 0, 0, 0.75);
